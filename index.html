@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protein-Ligand Etkileşim Heatmapleri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* Sayfa kenar boşluklarını sıfırla */
+            padding: 20px; /* İçerik için biraz boşluk bırak */
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center; /* Tüm ana içeriği merkeze hizala */
+        }
+        h1 {
+            color: #0056b3;
+            margin-bottom: 30px;
+            font-size: 2em; /* Ana başlığı biraz büyüt */
+        }
+        /* Heatmap'leri yan yana hizalayacak konteyner */
+        .heatmaps-wrapper {
+            display: flex; /* Flexbox düzenini etkinleştir */
+            flex-wrap: wrap; /* Gerekirse alt satıra geçmesine izin ver */
+            justify-content: center; /* Yatayda ortala */
+            gap: 20px; /* Heatmap'ler arasında boşluk bırak */
+            max-width: 1200px; /* Maksimum genişlik belirle */
+            margin: 0 auto; /* Konteyneri yatayda ortala */
+            padding: 20px; /* İç boşluk */
+            background-color: #fff; /* Arka plan rengi */
+            border-radius: 8px; /* Köşe yuvarlaklığı */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Hafif gölge */
+        }
+        .heatmap-container {
+            flex: 1; /* Eşit genişlikte dağılmasını sağlar */
+            min-width: 300px; /* Her bir kutunun minimum genişliği */
+            max-width: calc(33.333% - 20px); /* 3 kutu için eşit genişlik, gap'i hesaba kat */
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Daha hafif gölge */
+            text-align: center; /* Görsel ve başlığı ortala */
+            box-sizing: border-box; /* Padding ve border genişliğe dahil */
+            margin-bottom: 20px; /* Alt boşluk, özellikle mobil için */
+        }
+        .heatmap-container img {
+            max-width: 100%; /* Görselin kapsayıcısına sığmasını sağlar */
+            height: auto; /* Oranları korur */
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        .heatmap-container h2 {
+            color: #007bff;
+            font-size: 1.3em;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        .heatmap-container p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.4;
+        }
+        /* Mobil uyumluluk */
+        @media (max-width: 768px) {
+            .heatmaps-wrapper {
+                flex-direction: column; /* Küçük ekranlarda alt alta sırala */
+                padding: 10px;
+            }
+            .heatmap-container {
+                max-width: 100%; /* Mobil ekranı tamamen kaplasın */
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .heatmap-container h2 {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Protein-Ligand Etkileşimlerine Ait Bağlanma Afinitesi (ΔG) Heatmapleri</h1>
+
+    <div class="heatmaps-wrapper">
+        <div class="heatmap-container">
+            <h2>Heatmap 1: Ligand grubu F, S, R</h2>
+            <img src="heatmap_1.png" alt="Heatmap 1: Fisetin, Sorafenib, Regorafenib">
+            <p>Bu ısı haritası Fisetin, Sorafenib ve Regorafenib'in bireysel proteinlere bağlanma afinitesini göstermektedir.</p>
+        </div>
+
+        <div class="heatmap-container">
+            <h2>Heatmap 2: Ligand grubu Q, R, S</h2>
+            <img src="heatmap_2.png" alt="Heatmap 2: Quercetin, Regorafenib, Sorafenib">
+            <p>Bu ısı haritası Quercetin, Regorafenib ve Sorafenib'in bireysel proteinlere bağlanma afinitesini göstermektedir.</p>
+        </div>
+
+        <div class="heatmap-container">
+            <h2>Heatmap 3: Ligand kombinasyonları (Q+S, S+Q, F+R, R+F)</h2>
+            <img src="heatmap_3.png" alt="Heatmap 3: Quercetin-Sorafenib ve Fisetin-Regorafenib kombinasyonları">
+            <p>Bu ısı haritası, Quercetin-Sorafenib ve Fisetin-Regorafenib gibi farklı ligand kombinasyonlarının bağlanma afinitesini göstermektedir.</p>
+        </div>
+    </div>
+
+</body>
+</html>
